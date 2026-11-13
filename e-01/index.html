@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Preguntas para Macom E-01</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap">
+<style>
+  /* Layout: una columna de lectura; cada tema es un bloque con quién responde, y cada pregunta lleva su número fijo (P-001) y sus botones para responder por correo. */
+  :root {
+    --fondo: #f5f7f8;
+    --hoja: #ffffff;
+    --texto: #1b2429;
+    --suave: #56646c;
+    --linea: #dbe2e6;
+    --acento: #0f5d73;
+    --acento-texto: #ffffff;
+    --acento-suave: #e3eff2;
+    --propuesta: #f1f6e9;
+    --propuesta-borde: #5d7f2c;
+    --display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+    --cuerpo: "Public Sans", "Segoe UI", system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --fondo: #12181b; --hoja: #1a2226; --texto: #e4eaed; --suave: #9fb0b8; --linea: #2c383e;
+      --acento: #7cc4d6; --acento-texto: #0d1a1f; --acento-suave: #1d3138; --propuesta: #1f2a17;
+      --propuesta-borde: #9cc463;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --fondo: #12181b; --hoja: #1a2226; --texto: #e4eaed; --suave: #9fb0b8; --linea: #2c383e;
+    --acento: #7cc4d6; --acento-texto: #0d1a1f; --acento-suave: #1d3138; --propuesta: #1f2a17;
+    --propuesta-borde: #9cc463;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: var(--cuerpo);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-text-size-adjust: 100%;
+  }
+  .pagina {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding-block: 40px 56px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    display: grid;
+    gap: 32px;
+  }
+  header { display: grid; gap: 10px; }
+  .envio {
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--suave);
+  }
+  .envio strong { color: var(--acento); font-weight: 600; }
+  h1, h2 { font-family: var(--display); text-wrap: balance; margin: 0; }
+  h1 { font-size: clamp(30px, 6vw, 40px); line-height: 1.1; font-weight: 600; }
+  h2 { font-size: 21px; line-height: 1.25; font-weight: 600; }
+  header p, .intro-tema { margin: 0; color: var(--suave); max-width: 62ch; }
+  .como {
+    display: grid;
+    gap: 10px;
+    padding: 14px 16px;
+    border-radius: 8px;
+    background: var(--acento-suave);
+    font-size: 15px;
+  }
+  .como p { margin: 0; }
+  .como strong { color: var(--acento); }
+  .correo {
+    font-weight: 600;
+    user-select: all;
+    overflow-wrap: anywhere;
+  }
+  section.tema {
+    display: grid;
+    gap: 14px;
+    padding-top: 22px;
+    border-top: 1px solid var(--linea);
+  }
+  .cabecera-tema { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 14px; }
+  .quien {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--acento);
+    border: 1px solid var(--acento);
+    border-radius: 999px;
+    padding: 2px 10px;
+  }
+  ol.preguntas { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  .pregunta {
+    display: grid;
+    grid-template-columns: 4.25rem minmax(0, 1fr);
+    gap: 4px 12px;
+    padding: 16px;
+    background: var(--hoja);
+    border: 1px solid var(--linea);
+    border-radius: 8px;
+  }
+  .numero {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--acento);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.5;
+    white-space: nowrap;
+  }
+  .cuerpo-pregunta { display: grid; gap: 8px; min-width: 0; }
+  .texto-pregunta { margin: 0; font-weight: 600; font-size: 17px; line-height: 1.45; }
+  .para-que { margin: 0; color: var(--suave); font-size: 15px; }
+  .propuesta {
+    margin: 0;
+    font-size: 15px;
+    padding: 8px 12px;
+    background: var(--propuesta);
+    border-left: 3px solid var(--propuesta-borde);
+    border-radius: 0 6px 6px 0;
+  }
+  .monto { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .acciones { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; }
+  .boton {
+    display: inline-flex;
+    align-items: center;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-decoration: none;
+    color: var(--acento-texto);
+    background: var(--acento);
+    border: 1px solid var(--acento);
+    border-radius: 6px;
+    padding: 8px 14px;
+    cursor: pointer;
+  }
+  .boton.secundario { color: var(--acento); background: transparent; }
+  .boton:focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; }
+  .aviso { font-size: 14px; color: var(--suave); display: grid; gap: 6px; }
+  .aviso:empty { display: none; }
+  .copia-manual {
+    font: inherit;
+    font-size: 14px;
+    color: var(--texto);
+    background: var(--hoja);
+    border: 1px solid var(--linea);
+    border-radius: 6px;
+    padding: 6px 8px;
+    width: 100%;
+    resize: vertical;
+  }
+  footer { color: var(--suave); font-size: 14px; border-top: 1px solid var(--linea); padding-top: 18px; }
+  @media (max-width: 420px) {
+    .pregunta { grid-template-columns: minmax(0, 1fr); padding: 14px 12px; }
+  }
+</style>
+</head>
+<body>
+<div class="pagina">
+  <header>
+    <span class="envio"><strong>Envío E-01</strong> · 13 de noviembre de 2026</span>
+    <h1>Preguntas para Macom</h1>
+    <p>Estas son las dudas que me quedan abiertas para seguir construyendo el sistema de instalaciones y
+      servicios. Con sus respuestas armo cada parte como trabajan ustedes, y no hay que rehacerla
+      después.</p>
+    <div class="como">
+      <p><strong>Cómo responder:</strong> por correo a <span class="correo">nestornjrz@hotmail.com</span>,
+        con el asunto <span class="correo">Respuestas a preguntas E-01</span> y el número de cada pregunta
+        con su respuesta, por ejemplo «P-003: sí». Así queda todo documentado. Cada pregunta conserva su
+        número, así que se pueden responder de a poco y en cualquier orden.</p>
+      <div class="acciones">
+        <a class="boton" id="escribir-correo" href="mailto:nestornjrz@hotmail.com?subject=Respuestas%20a%20preguntas%20E-01">Escribir el correo</a>
+        <button type="button" class="boton secundario" id="copiar-correo">Copiar la dirección</button>
+        <button type="button" class="boton secundario" id="copiar-asunto">Copiar el asunto</button>
+        <button type="button" class="boton secundario" id="copiar-plantilla">Copiar la plantilla</button>
+        <span class="aviso" id="aviso-correo" role="status"></span>
+      </div>
+      <p>«Escribir el correo» abre su programa de correo con la dirección, el asunto y los trece números
+        listos para completar; debajo de cada pregunta, «Responder por correo» abre uno con esa pregunta
+        ya escrita. Si usan el correo desde el navegador y el botón no abre nada, los botones de copiar
+        hacen lo mismo: se copia y se pega en el correo.</p>
+      <p>Si alguna la conversamos en una reunión, la grabo para que también quede registrada. Si una
+        pregunta no aplica o todavía no lo tienen decidido, también me sirve saberlo.</p>
+    </div>
+  </header>
+
+  <section class="tema" aria-labelledby="t-dolar">
+    <div class="cabecera-tema">
+      <h2 id="t-dolar">El dólar y el costo de los artículos</h2>
+      <span class="quien">Gerencia</span>
+    </div>
+    <p class="intro-tema">Hoy el sistema guarda el costo de cada artículo en guaraníes, y lo que se compra en
+      dólares se convierte a mano al cargarlo. Con el dólar tan inestable, propongo que cada artículo
+      guarde su costo en la moneda en que se compra (por ejemplo, USD 120) y que cada previsión use el
+      dólar del día para pasarlo a guaraníes. Así, cuando el dólar se mueve, no hay que corregir artículo
+      por artículo.</p>
+    <ol class="preguntas">
+      <li class="pregunta" id="P-001">
+        <span class="numero">P-001</span>
+        <div class="cuerpo-pregunta">
+          <p class="texto-pregunta">¿Qué parte de lo que compran se paga en dólares, y cada cuánto cambian esos precios?</p>
+          <p class="para-que">Me dice si vale la pena guardar el costo en dólares o si alcanza con guaraníes.</p>
+        </div>
+      </li>
+      <li class="pregunta" id="P-002">
+        <span class="numero">P-002</span>
+        <div class="cuerpo-pregunta">
+          <p class="texto-pregunta">Para presupuestar, ¿qué dólar usan: el de compra, el de venta, el de referencia del Banco Central o el de su banco?</p>
+          <p class="para-que">Es el valor que el sistema va a proponer al armar cada previsión.</p>
+        </div>
+      </li>
+      <li class="pregunta" id="P-003">
+        <span class="numero">P-003</span>
+        <div class="cuerpo-pregunta">
+          <p class="texto-pregunta">Si el dólar se mueve después de armar una previsión, pero antes de enviar la cotización, ¿la previsión se actualiza con el dólar nuevo?</p>
+          <p class="propuesta"><strong>Mi propuesta:</strong> sí, mientras la previsión se sigue editando; desde que se envía la cotización, queda fija.</p>
+        </div>
+      </li>
+      <li class="pregunta" id="P-004">
+        <span class="numero">P-004</span>
+        <div class="cuerpo-pregunta">
+          <p class="texto-pregunta">Cuando un proveedor les da un precio en dólares, ¿ese precio incluye IVA? ¿Y lo que importan ustedes directamente?</p>
+          <p class="para-que">Hoy todo costo se carga con IVA incluido; necesito saber si en dólares es igual.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="tema" aria-labelledby="t-deposito">
+    <div class="cabecera-tema">
+      <h2 id="t-deposito">Equipos y depósito</h2>
+      <span class="quien">Gerencia y contador</span>
+    </div>
+    <p class="intro-tema">Más adelante, el stock va a registrar cada compra como un lote, con su precio y el
+      dólar de ese día. Lo pregunto ahora para que lo que construya antes no le cierre la puerta.</p>
+    <ol class="preguntas">
+      <li class="pregunta" id="P-005">
+        <span class="numero">P-005</span>
+        <div class="cuerpo-pregunta">
+          <p class="texto-pregunta">¿Controlan los equipos por número de serie, por ejemplo cada cámara?</p>
+          <p class="para-que">Si es así, el sistema puede registrar qué equipo exacto se instaló en cada obra y con qué costo.</p>
+        </div>
+      </li>
+      <li class="pregunta" id="P-006">
+        <span class="numero">P-006</span>
+        <div class="cuerpo-pregunta">
+          <p class="texto-pregunta">Para el contador: cuando un mismo artículo entra en compras a distinto precio, ¿con qué costo se valúa lo que sale del depósito: el de cada equipo exacto, el de la compra más antigua primero o un costo promedio?</p>
+          <p class="para-que">Define con qué costo se calcula lo que realmente costó cada obra.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="tema" aria-labelledby="t-iva">
+    <div class="cabecera-tema">
+      <h2 id="t-iva">IVA</h2>
+      <span class="quien">Contador</span>
+    </div>
+    <ol class="preguntas">
+      <li class="pregunta" id="P-007">
+        <span class="numero">P-007</span>
+        <div class="cuerpo-pregunta">
+          <p class="texto-pregunta">En la obra Edificio Navila, ¿qué tasa de IVA tiene cada artículo: 10 %, 5 % o exento?</p>
+          <p class="para-que">El Excel no lo dice, y en el sistema se cargaron todos al 10 %. Se puede confirmar con las facturas de compra.</p>
+        </div>
+      </li>
+      <li class="pregunta" id="P-008">
+        <span class="numero">P-008</span>
+        <div class="cuerpo-pregunta">
+          <p class="texto-pregunta">Un gasto sin factura legal, como un viático, que se le cobra al cliente dentro del servicio: en la factura al cliente, ¿lleva IVA?</p>
+          <p class="para-que">El combustible ya quedó definido: exento al comprarlo y también en la factura al cliente. Falta saber si los demás gastos sin factura siguen la misma regla.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="tema" aria-labelledby="t-excel">
+    <div class="cabecera-tema">
+      <h2 id="t-excel">El Excel de la obra Edificio Navila</h2>
+      <span class="quien">Quien armó el Excel</span>
+    </div>
+    <ol class="preguntas">
+      <li class="pregunta" id="P-009">
+        <span class="numero">P-009</span>
+        <div class="cuerpo-pregunta">
+          <p class="texto-pregunta">En la hoja «PREVISION COSTO», las curvas dicen <span class="monto">2.637.000 Gs</span> y el cable bicolor <span class="monto">25.000 Gs</span>, escritos a mano. Con la fórmula darían <span class="monto">100.000 Gs</span> y <span class="monto">1.585.714 Gs</span>. ¿Fue a propósito?</p>
+          <p class="para-que">Esos dos valores suben los materiales de la cotización en unos <span class="monto">976.000 Gs</span>.</p>
+        </div>
+      </li>
+      <li class="pregunta" id="P-010">
+        <span class="numero">P-010</span>
+        <div class="cuerpo-pregunta">
+          <p class="texto-pregunta">La hoja «COTI» cotiza 1 fuente de alimentación (VSA-12V30A) y la hoja «PREVISION COSTO» prevé 2. ¿Cuál vale?</p>
+          <p class="para-que">Es justo el tipo de diferencia que el sistema va a avisar al comparar la cotización con la previsión.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="tema" aria-labelledby="t-proyectos">
+    <div class="cabecera-tema">
+      <h2 id="t-proyectos">Proyectos, horario y mapa</h2>
+      <span class="quien">Gerencia</span>
+    </div>
+    <ol class="preguntas">
+      <li class="pregunta" id="P-011">
+        <span class="numero">P-011</span>
+        <div class="cuerpo-pregunta">
+          <p class="texto-pregunta">Las marcas «facturado» y «remitido» de un proyecto, ¿alcanza con marcarlas o necesitan guardar el número y la fecha de la factura o del remito?</p>
+        </div>
+      </li>
+      <li class="pregunta" id="P-012">
+        <span class="numero">P-012</span>
+        <div class="cuerpo-pregunta">
+          <p class="texto-pregunta">¿Cuántas horas tiene la jornada normal de un instalador?</p>
+          <p class="para-que">Con ese dato se calcula el costo por hora de cada instalador y, con sus marcaciones, el costo real de la mano de obra.</p>
+        </div>
+      </li>
+      <li class="pregunta" id="P-013">
+        <span class="numero">P-013</span>
+        <div class="cuerpo-pregunta">
+          <p class="texto-pregunta">Para ver en un mapa dónde marcan los instaladores, ¿prefieren Google Maps, que exige registrar una cuenta con tarjeta de crédito, u OpenStreetMap, que es libre y no pide cuenta?</p>
+          <p class="para-que">La ubicación la da el celular en los dos casos; el mapa solo la muestra.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <footer>Gracias. Con estas respuestas sigo sin frenar el trabajo.</footer>
+</div>
+
+<script>
+(function () {
+  var CORREO = "nestornjrz@hotmail.com";
+  var ASUNTO = "Respuestas a preguntas E-01";
+
+  // Arma un enlace mailto: que abre el programa de correo con la dirección, el asunto y el texto. Los
+  // saltos de línea van como CRLF, que es lo que esperan los programas de correo (RFC 6068).
+  function enlaceDeCorreo(cuerpo) {
+    return "mailto:" + CORREO
+      + "?subject=" + encodeURIComponent(ASUNTO)
+      + "&body=" + encodeURIComponent(cuerpo.replace(/\n/g, "\r\n"));
+  }
+
+  // Copia al portapapeles desde el clic; si el navegador no lo permite, muestra el texto seleccionado
+  // para copiarlo a mano.
+  function copiar(texto, aviso) {
+    function aMano() {
+      var area = document.createElement("textarea");
+      area.className = "copia-manual";
+      area.readOnly = true;
+      area.value = texto;
+      area.rows = Math.min(6, texto.split("\n").length + 1);
+      aviso.replaceChildren(document.createTextNode("No se pudo copiar solo: seleccionen el texto y cópienlo con Ctrl+C."), area);
+      area.focus();
+      area.select();
+    }
+    try {
+      if (!navigator.clipboard || !navigator.clipboard.writeText) { aMano(); return; }
+      navigator.clipboard.writeText(texto).then(function () { aviso.textContent = "Copiado."; }, aMano);
+    } catch (e) {
+      aMano();
+    }
+  }
+
+  var preguntas = Array.prototype.slice.call(document.querySelectorAll(".pregunta"));
+
+  var avisoDelCorreo = document.getElementById("aviso-correo");
+  var plantilla = preguntas.map(function (li) { return li.id + ": "; }).join("\n") + "\n";
+  document.getElementById("escribir-correo").href = enlaceDeCorreo(plantilla);
+  document.getElementById("copiar-correo").addEventListener("click", function () { copiar(CORREO, avisoDelCorreo); });
+  document.getElementById("copiar-asunto").addEventListener("click", function () { copiar(ASUNTO, avisoDelCorreo); });
+  document.getElementById("copiar-plantilla").addEventListener("click", function () { copiar(plantilla, avisoDelCorreo); });
+
+  preguntas.forEach(function (li) {
+    var pregunta = li.id + ": " + li.querySelector(".texto-pregunta").textContent.replace(/\s+/g, " ").trim();
+    var texto = pregunta + "\nRespuesta: ";
+    var acciones = document.createElement("div");
+    acciones.className = "acciones";
+
+    var responder = document.createElement("a");
+    responder.className = "boton";
+    responder.href = enlaceDeCorreo(texto);
+    responder.textContent = "Responder por correo";
+
+    var copiarPregunta = document.createElement("button");
+    copiarPregunta.type = "button";
+    copiarPregunta.className = "boton secundario";
+    copiarPregunta.textContent = "Copiar pregunta";
+
+    var aviso = document.createElement("span");
+    aviso.className = "aviso";
+    aviso.setAttribute("role", "status");
+
+    copiarPregunta.addEventListener("click", function () { copiar(texto, aviso); });
+    acciones.append(responder, copiarPregunta, aviso);
+    li.querySelector(".cuerpo-pregunta").append(acciones);
+  });
+})();
+</script>
+</body>
+</html>
