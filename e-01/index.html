@@ -178,21 +178,17 @@
       servicios. Con sus respuestas armo cada parte como trabajan ustedes, y no hay que rehacerla
       después.</p>
     <div class="como">
-      <p><strong>Cómo responder:</strong> por correo a <span class="correo">nestornjrz@hotmail.com</span>,
-        con el asunto <span class="correo">Respuestas a preguntas E-01</span> y el número de cada pregunta
-        con su respuesta, por ejemplo «P-003: sí». Así queda todo documentado. Cada pregunta conserva su
-        número, así que se pueden responder de a poco y en cualquier orden.</p>
+      <p><strong>Cómo responder:</strong> por correo, así queda documentado. «Escribir el correo» lo abre
+        con las trece preguntas numeradas para completar, y «Responder por correo», debajo de cada una,
+        con esa sola. Se pueden responder de a poco y en cualquier orden.</p>
       <div class="acciones">
         <a class="boton" id="escribir-correo" href="mailto:nestornjrz@hotmail.com?subject=Respuestas%20a%20preguntas%20E-01">Escribir el correo</a>
         <button type="button" class="boton secundario" id="copiar-correo">Copiar la dirección</button>
-        <button type="button" class="boton secundario" id="copiar-asunto">Copiar el asunto</button>
-        <button type="button" class="boton secundario" id="copiar-plantilla">Copiar la plantilla</button>
         <span class="aviso" id="aviso-correo" role="status"></span>
       </div>
-      <p>«Escribir el correo» abre su programa de correo con la dirección, el asunto y los trece números
-        listos para completar; debajo de cada pregunta, «Responder por correo» abre uno con esa pregunta
-        ya escrita. Si usan el correo desde el navegador y el botón no abre nada, los botones de copiar
-        hacen lo mismo: se copia y se pega en el correo.</p>
+      <p>Si el botón no abre su correo, escriban a <span class="correo">nestornjrz@hotmail.com</span> con el
+        asunto <span class="correo">Respuestas a preguntas E-01</span> y el número de cada pregunta con su
+        respuesta, por ejemplo «P-003: sí».</p>
       <p>Si alguna la conversamos en una reunión, la grabo para que también quede registrada. Si una
         pregunta no aplica o todavía no lo tienen decidido, también me sirve saberlo.</p>
     </div>
@@ -383,8 +379,6 @@
   var plantilla = preguntas.map(function (li) { return li.id + ": "; }).join("\n") + "\n";
   document.getElementById("escribir-correo").href = enlaceDeCorreo(plantilla);
   document.getElementById("copiar-correo").addEventListener("click", function () { copiar(CORREO, avisoDelCorreo); });
-  document.getElementById("copiar-asunto").addEventListener("click", function () { copiar(ASUNTO, avisoDelCorreo); });
-  document.getElementById("copiar-plantilla").addEventListener("click", function () { copiar(plantilla, avisoDelCorreo); });
 
   preguntas.forEach(function (li) {
     var pregunta = li.id + ": " + li.querySelector(".texto-pregunta").textContent.replace(/\s+/g, " ").trim();
