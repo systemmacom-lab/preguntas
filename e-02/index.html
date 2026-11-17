@@ -444,6 +444,10 @@
 
   preguntas.forEach(function (li) {
     var pregunta = li.id + ": " + li.querySelector(".texto-pregunta").textContent.replace(/\s+/g, " ").trim();
+    // El cierre trae las preguntas puntuales del ejemplo: va también en el correo, para que no se
+    // pierdan al responder desde ahí.
+    var cierre = li.querySelector(".cierre");
+    if (cierre) { pregunta += "\n" + cierre.textContent.replace(/\s+/g, " ").trim(); }
     var texto = pregunta + "\nRespuesta: ";
     var acciones = document.createElement("div");
     acciones.className = "acciones";
