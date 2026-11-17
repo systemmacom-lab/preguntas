@@ -104,7 +104,7 @@
   ol.preguntas { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
   .pregunta {
     display: grid;
-    grid-template-columns: 4.25rem minmax(0, 1fr);
+    grid-template-columns: 5.5rem minmax(0, 1fr);
     gap: 4px 12px;
     padding: 16px;
     background: var(--hoja);
@@ -177,6 +177,9 @@
   .ejemplo ul { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; }
   .ejemplo .rotulo { font-weight: 600; }
   .cierre { margin: 0; font-weight: 600; }
+  .pagina a:not(.boton) { color: var(--acento); text-decoration: underline; text-underline-offset: 2px; }
+  .pagina a:not(.boton):focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; border-radius: 2px; }
+  .repregunta { display: block; font-family: var(--cuerpo); font-size: 12px; font-weight: 500; }
   footer { color: var(--suave); font-size: 14px; border-top: 1px solid var(--linea); padding-top: 18px; }
   @media (max-width: 420px) {
     .pregunta { grid-template-columns: minmax(0, 1fr); padding: 14px 12px; }
@@ -188,7 +191,7 @@
   <header>
     <span class="envio"><strong>Envío E-02</strong> · 16 de noviembre de 2026</span>
     <h1>Preguntas para Macom</h1>
-    <p>Gracias por las respuestas del envío E-01: con ellas ya avancé. Algunas abrieron preguntas
+    <p>Gracias por las respuestas del <a href="../e-01/">envío E-01</a>: con ellas ya avancé. Algunas abrieron preguntas
       nuevas, y estas otras las necesito para terminar la cotización que imprime el sistema. Esta vez
       cada pregunta trae un ejemplo, con números inventados, de qué cambia en el sistema según lo que
       respondan.</p>
@@ -204,7 +207,7 @@
       </div>
       <p>Si el botón no abre su correo, escriban a <span class="correo">nestornjrz@hotmail.com</span> con el
         asunto <span class="correo">Respuestas a preguntas E-02</span> y el número de cada pregunta con su
-        respuesta, por ejemplo «P-028: solo el total».</p>
+        respuesta, por ejemplo «P-030: de acuerdo».</p>
       <p>Si una pregunta no aplica o todavía no lo tienen decidido, también me sirve saberlo.</p>
     </div>
   </header>
@@ -281,7 +284,7 @@
       <h2 id="t-combustible">El combustible</h2>
       <span class="quien">Gerencia o contador</span>
     </div>
-    <p class="intro-tema">En el E-01 respondieron que un gasto sin factura se le cobra al cliente como mano de obra, con IVA. Hoy el sistema cobra el combustible exento.</p>
+    <p class="intro-tema">En la pregunta <a href="../e-01/#P-008">P-008</a> del envío E-01 respondieron que un gasto sin factura se le cobra al cliente como mano de obra, con IVA. Hoy el sistema cobra el combustible exento.</p>
     <ol class="preguntas">
       <li class="pregunta" id="P-026">
         <span class="numero">P-026</span>
@@ -291,7 +294,7 @@
             <p><span class="rotulo">Ejemplo:</span> en una obra se gastan <span class="monto">200.000 Gs</span> de combustible.</p>
             <ul>
               <li><strong>Si se compra con factura</strong>, se le cobra al cliente exento: <span class="monto">200.000 Gs</span>, como hace hoy el sistema.</li>
-              <li><strong>Si no hay factura</strong>, por lo que respondieron en P-008 se le cobra como mano de obra con IVA: <span class="monto">200.000 Gs</span> más el 10&nbsp;%, <span class="monto">220.000 Gs</span> (sin contar la utilidad).</li>
+              <li><strong>Si no hay factura</strong>, por lo que respondieron en <a href="../e-01/#P-008">P-008</a> se le cobra como mano de obra con IVA: <span class="monto">200.000 Gs</span> más el 10&nbsp;%, <span class="monto">220.000 Gs</span> (sin contar la utilidad).</li>
             </ul>
           </div>
           <p class="cierre">¿Cuál es el caso? ¿Hay otros gastos de obra que se traten igual?</p>
@@ -305,10 +308,10 @@
       <h2 id="t-dolar">El dólar en la previsión</h2>
       <span class="quien">Gerencia</span>
     </div>
-    <p class="intro-tema">En el E-01 respondieron que «si la previsión es en dólar, la cotización va en dólar». Hoy el sistema arma toda previsión en guaraníes, y solo la cotización puede ir en dólares.</p>
+    <p class="intro-tema">En la pregunta <a href="../e-01/#P-003">P-003</a> del envío E-01 respondieron que «si la previsión es en dólar, la cotización va en dólar». Hoy el sistema arma toda previsión en guaraníes, y solo la cotización puede ir en dólares.</p>
     <ol class="preguntas">
-      <li class="pregunta" id="P-003">
-        <span class="numero">P-003</span>
+      <li class="pregunta" id="P-003" data-repregunta="si">
+        <span class="numero">P-003<a class="repregunta" href="../e-01/#P-003" title="La pregunta original, en el envío E-01">(repregunta)</a></span>
         <div class="cuerpo-pregunta">
           <p class="texto-pregunta">Si el dólar se mueve entre que se arma la previsión y se envía la cotización, ¿la previsión se recalcula con el dólar nuevo?</p>
           <div class="ejemplo">
@@ -343,7 +346,7 @@
       <h2 id="t-exencion">Clientes con excepción de IVA</h2>
       <span class="quien">Gerencia o contador</span>
     </div>
-    <p class="intro-tema">En el E-01 respondieron que hay clientes con excepción de IVA, a los que se les factura exento. Hoy el sistema toma el IVA del artículo, nunca del cliente.</p>
+    <p class="intro-tema">En las preguntas <a href="../e-01/#P-007">P-007</a> y <a href="../e-01/#P-008">P-008</a> del envío E-01 respondieron que hay clientes con excepción de IVA, a los que se les factura exento. Hoy el sistema toma el IVA del artículo, nunca del cliente.</p>
     <ol class="preguntas">
       <li class="pregunta" id="P-025">
         <span class="numero">P-025</span>
@@ -439,12 +442,13 @@
   var preguntas = Array.prototype.slice.call(document.querySelectorAll(".pregunta"));
 
   var avisoDelCorreo = document.getElementById("aviso-correo");
-  var plantilla = preguntas.map(function (li) { return li.id + ": "; }).join("\n") + "\n";
+  function rotulo(li) { return li.id + (li.dataset.repregunta ? " (repregunta)" : ""); }
+  var plantilla = preguntas.map(function (li) { return rotulo(li) + ": "; }).join("\n") + "\n";
   document.getElementById("escribir-correo").href = enlaceDeCorreo(plantilla);
   document.getElementById("copiar-correo").addEventListener("click", function () { copiar(CORREO, avisoDelCorreo); });
 
   preguntas.forEach(function (li) {
-    var pregunta = li.id + ": " + li.querySelector(".texto-pregunta").textContent.replace(/\s+/g, " ").trim();
+    var pregunta = rotulo(li) + ": " + li.querySelector(".texto-pregunta").textContent.replace(/\s+/g, " ").trim();
     // El cierre trae las preguntas puntuales del ejemplo: va también en el correo, para que no se
     // pierdan al responder desde ahí.
     var cierre = li.querySelector(".cierre");
