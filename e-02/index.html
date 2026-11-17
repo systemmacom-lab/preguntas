@@ -179,6 +179,9 @@
   .cierre { margin: 0; font-weight: 600; }
   .pagina a:not(.boton) { color: var(--acento); text-decoration: underline; text-underline-offset: 2px; }
   .pagina a:not(.boton):focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; border-radius: 2px; }
+  .pagina a[target="_blank"]::after { content: "\00a0\2197"; font-size: 0.85em; }
+  .solo-lector { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .sin-corte { white-space: nowrap; }
   .repregunta { display: block; font-family: var(--cuerpo); font-size: 12px; font-weight: 500; }
   footer { color: var(--suave); font-size: 14px; border-top: 1px solid var(--linea); padding-top: 18px; }
   @media (max-width: 420px) {
@@ -189,9 +192,9 @@
 <body>
 <div class="pagina">
   <header>
-    <span class="envio"><strong>Envío E-02</strong> · 16 de noviembre de 2026</span>
+    <span class="envio"><strong>Envío <span class="sin-corte">E-02</span></strong> · 16 de noviembre de 2026</span>
     <h1>Preguntas para Macom</h1>
-    <p>Gracias por las respuestas del <a href="../e-01/">envío E-01</a>: con ellas ya avancé. Algunas abrieron preguntas
+    <p>Gracias por las respuestas del <a href="../e-01/" target="_blank" rel="noopener">envío <span class="sin-corte">E-01</span><span class="solo-lector"> (se abre en otra pestaña)</span></a>: con ellas ya avancé. Algunas abrieron preguntas
       nuevas, y estas otras las necesito para terminar la cotización que imprime el sistema. Esta vez
       cada pregunta trae un ejemplo, con números inventados, de qué cambia en el sistema según lo que
       respondan.</p>
@@ -206,8 +209,8 @@
         <span class="aviso" id="aviso-correo" role="status"></span>
       </div>
       <p>Si el botón no abre su correo, escriban a <span class="correo">nestornjrz@hotmail.com</span> con el
-        asunto <span class="correo">Respuestas a preguntas E-02</span> y el número de cada pregunta con su
-        respuesta, por ejemplo «P-030: de acuerdo».</p>
+        asunto <span class="correo">Respuestas a preguntas <span class="sin-corte">E-02</span></span> y el número de cada pregunta con su
+        respuesta, por ejemplo «<span class="sin-corte">P-030</span>: de acuerdo».</p>
       <p>Si una pregunta no aplica o todavía no lo tienen decidido, también me sirve saberlo.</p>
     </div>
   </header>
@@ -220,7 +223,7 @@
     <p class="intro-tema">El sistema ya arma, envía y aprueba la cotización. Falta la hoja que recibe el cliente, que se imprime o se guarda como PDF y va a seguir el formato de la hoja «COTI» de su Excel. Me quedan estas dudas:</p>
     <ol class="preguntas">
       <li class="pregunta" id="P-030">
-        <span class="numero">P-030</span>
+        <span class="numero"><span class="sin-corte">P-030</span></span>
         <div class="cuerpo-pregunta">
           <p class="texto-pregunta">Una cotización en estado borrador, al imprimirse, ¿debe llevar la marca «BORRADOR», o no se debe poder imprimir en ese estado?</p>
           <div class="ejemplo">
@@ -234,7 +237,7 @@
         </div>
       </li>
       <li class="pregunta" id="P-031">
-        <span class="numero">P-031</span>
+        <span class="numero"><span class="sin-corte">P-031</span></span>
         <div class="cuerpo-pregunta">
           <p class="texto-pregunta">¿El logo de Sony con «Representante en Paraguay» va en todas las cotizaciones, o solo cuando se cotizan equipos Sony?</p>
           <div class="ejemplo">
@@ -248,7 +251,7 @@
         </div>
       </li>
       <li class="pregunta" id="P-032">
-        <span class="numero">P-032</span>
+        <span class="numero"><span class="sin-corte">P-032</span></span>
         <div class="cuerpo-pregunta">
           <p class="texto-pregunta">En la hoja «COTI» del Excel, las líneas van debajo del título «POLULAR», con su total en la columna «TOTAL GENERAL». ¿Ese título ordena la cotización, o es una opción entre varias que el cliente elige?</p>
           <div class="ejemplo">
@@ -262,7 +265,7 @@
         </div>
       </li>
       <li class="pregunta" id="P-033">
-        <span class="numero">P-033</span>
+        <span class="numero"><span class="sin-corte">P-033</span></span>
         <div class="cuerpo-pregunta">
           <p class="texto-pregunta">Al pie de la cotización van el nombre, el correo y el celular de quien la preparó. ¿Tienen que ser los de quien la arma, los de quien la envía o siempre los de la misma persona?</p>
           <div class="ejemplo">
@@ -284,17 +287,17 @@
       <h2 id="t-combustible">El combustible</h2>
       <span class="quien">Gerencia o contador</span>
     </div>
-    <p class="intro-tema">En la pregunta <a href="../e-01/#P-008">P-008</a> del envío E-01 respondieron que un gasto sin factura se le cobra al cliente como mano de obra, con IVA. Hoy el sistema cobra el combustible exento.</p>
+    <p class="intro-tema">En la pregunta <a href="../e-01/#P-008" target="_blank" rel="noopener"><span class="sin-corte">P-008</span><span class="solo-lector"> (se abre en otra pestaña)</span></a> del envío <span class="sin-corte">E-01</span> respondieron que un gasto sin factura se le cobra al cliente como mano de obra, con IVA. Hoy el sistema cobra el combustible exento.</p>
     <ol class="preguntas">
       <li class="pregunta" id="P-026">
-        <span class="numero">P-026</span>
+        <span class="numero"><span class="sin-corte">P-026</span></span>
         <div class="cuerpo-pregunta">
           <p class="texto-pregunta">El combustible de una obra, ¿se compra con factura de la estación de servicio y se le cobra al cliente exento, o se trata como un gasto sin factura?</p>
           <div class="ejemplo">
             <p><span class="rotulo">Ejemplo:</span> en una obra se gastan <span class="monto">200.000 Gs</span> de combustible.</p>
             <ul>
               <li><strong>Si se compra con factura</strong>, se le cobra al cliente exento: <span class="monto">200.000 Gs</span>, como hace hoy el sistema.</li>
-              <li><strong>Si no hay factura</strong>, por lo que respondieron en <a href="../e-01/#P-008">P-008</a> se le cobra como mano de obra con IVA: <span class="monto">200.000 Gs</span> más el 10&nbsp;%, <span class="monto">220.000 Gs</span> (sin contar la utilidad).</li>
+              <li><strong>Si no hay factura</strong>, por lo que respondieron en <a href="../e-01/#P-008" target="_blank" rel="noopener"><span class="sin-corte">P-008</span><span class="solo-lector"> (se abre en otra pestaña)</span></a> se le cobra como mano de obra con IVA: <span class="monto">200.000 Gs</span> más el 10&nbsp;%, <span class="monto">220.000 Gs</span> (sin contar la utilidad).</li>
             </ul>
           </div>
           <p class="cierre">¿Cuál es el caso? ¿Hay otros gastos de obra que se traten igual?</p>
@@ -308,10 +311,10 @@
       <h2 id="t-dolar">El dólar en la previsión</h2>
       <span class="quien">Gerencia</span>
     </div>
-    <p class="intro-tema">En la pregunta <a href="../e-01/#P-003">P-003</a> del envío E-01 respondieron que «si la previsión es en dólar, la cotización va en dólar». Hoy el sistema arma toda previsión en guaraníes, y solo la cotización puede ir en dólares.</p>
+    <p class="intro-tema">En la pregunta <a href="../e-01/#P-003" target="_blank" rel="noopener"><span class="sin-corte">P-003</span><span class="solo-lector"> (se abre en otra pestaña)</span></a> del envío <span class="sin-corte">E-01</span> respondieron que «si la previsión es en dólar, la cotización va en dólar». Hoy el sistema arma toda previsión en guaraníes, y solo la cotización puede ir en dólares.</p>
     <ol class="preguntas">
       <li class="pregunta" id="P-003" data-repregunta="si">
-        <span class="numero">P-003<a class="repregunta" href="../e-01/#P-003" title="La pregunta original, en el envío E-01">(repregunta)</a></span>
+        <span class="numero"><span class="sin-corte">P-003</span><a class="repregunta" href="../e-01/#P-003" title="La pregunta original, en el envío E-01" target="_blank" rel="noopener">(repregunta)<span class="solo-lector"> (se abre en otra pestaña)</span></a></span>
         <div class="cuerpo-pregunta">
           <p class="texto-pregunta">Si el dólar se mueve entre que se arma la previsión y se envía la cotización, ¿la previsión se recalcula con el dólar nuevo?</p>
           <div class="ejemplo">
@@ -325,7 +328,7 @@
         </div>
       </li>
       <li class="pregunta" id="P-024">
-        <span class="numero">P-024</span>
+        <span class="numero"><span class="sin-corte">P-024</span></span>
         <div class="cuerpo-pregunta">
           <p class="texto-pregunta">¿Una previsión puede armarse entera en dólares? ¿Y cuándo deciden que una obra va en dólares?</p>
           <div class="ejemplo">
@@ -346,10 +349,10 @@
       <h2 id="t-exencion">Clientes con excepción de IVA</h2>
       <span class="quien">Gerencia o contador</span>
     </div>
-    <p class="intro-tema">En las preguntas <a href="../e-01/#P-007">P-007</a> y <a href="../e-01/#P-008">P-008</a> del envío E-01 respondieron que hay clientes con excepción de IVA, a los que se les factura exento. Hoy el sistema toma el IVA del artículo, nunca del cliente.</p>
+    <p class="intro-tema">En las preguntas <a href="../e-01/#P-007" target="_blank" rel="noopener"><span class="sin-corte">P-007</span><span class="solo-lector"> (se abre en otra pestaña)</span></a> y <a href="../e-01/#P-008" target="_blank" rel="noopener"><span class="sin-corte">P-008</span><span class="solo-lector"> (se abre en otra pestaña)</span></a> del envío <span class="sin-corte">E-01</span> respondieron que hay clientes con excepción de IVA, a los que se les factura exento. Hoy el sistema toma el IVA del artículo, nunca del cliente.</p>
     <ol class="preguntas">
       <li class="pregunta" id="P-025">
-        <span class="numero">P-025</span>
+        <span class="numero"><span class="sin-corte">P-025</span></span>
         <div class="cuerpo-pregunta">
           <p class="texto-pregunta">¿Cómo funciona la excepción de IVA de un cliente: es siempre del cliente o depende de la obra, y qué alcanza?</p>
           <div class="ejemplo">
@@ -372,7 +375,7 @@
     </div>
     <ol class="preguntas">
       <li class="pregunta" id="P-021">
-        <span class="numero">P-021</span>
+        <span class="numero"><span class="sin-corte">P-021</span></span>
         <div class="cuerpo-pregunta">
           <p class="texto-pregunta">¿Qué artículos compran agrupados, por caja, rollo o bolsa, y cuántos trae cada grupo?</p>
           <div class="ejemplo">
@@ -386,7 +389,7 @@
         </div>
       </li>
       <li class="pregunta" id="P-022">
-        <span class="numero">P-022</span>
+        <span class="numero"><span class="sin-corte">P-022</span></span>
         <div class="cuerpo-pregunta">
           <p class="texto-pregunta">¿Les alcanza con saber los metros que quedan de un cable, o necesitan saber qué rollos siguen cerrados?</p>
           <div class="ejemplo">
